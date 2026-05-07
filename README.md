@@ -11,9 +11,7 @@ operations by providing a single platform for managing all shelter activities.
 ---
 
 ## Jira Link:
-
-
----
+(ADD HERE)
 
 
 ## Core Features
