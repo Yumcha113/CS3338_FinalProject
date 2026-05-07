@@ -1,0 +1,237 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep}
+\renewcommand{\arraystretch}{1.25}
+\title{Dog Shelter Management System\\Software Requirements Specification}
+\author{Fernando Camberos\\Kwane Galang\\Korapat Jaengsrivong\\Andy Lim\\Fredy Lung}
+\date{May 2026}
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+\section*{Revision History}
+\begin{longtable}{|p{0.18\textwidth}|p{0.18\textwidth}|p{0.18\textwidth}|p{0.18\textwidth}|p{0.18\textwidth}|}
+\hline
+Revision \# & Change Description & Revision Date & Revised By & Approved By \\
+\hline
+1.0 & Initial document with system overviews and core features & 05/5/2026 &  &  \\
+\hline
+1.1 & Added Dog Intake and Status Tracking requirements/design & 05/6/2026 &  &  \\
+\hline
+1.2 & Added Medical Records and Adoption System & 05/7/2026 &  &  \\
+\hline
+1.3 & Final Checkpoint \& Final updates, refinements, and future work & 05/8/2026 &  &  \\
+\hline
+\end{longtable}
+\newpage
+\section{Introduction}
+\subsection{Purpose}
+This document defines the software requirements for the Dog Shelter Management System. The system will help shelter staff manage dog intake, medical records, adoption applications, and dog availability status. This SRS describes what the system must do, who will use it, and what constraints or rules apply.
+
+\subsection{Intended Audience}
+This document is intended for developers, testers, project managers, shelter staff, and instructors reviewing the project.
+
+\subsection{Product Scope}
+The Dog Shelter Management System will provide a centralized web-based system for managing shelter dogs from intake through adoption. The system will allow staff to add dog records, track medical history, update adoption status, and review adoption applications submitted by users.
+\subsection{Definitions, Acronyms, and Abbreviations}
+\begin{itemize}\item Applicant: A user who submits an adoption application\end{itemize}
+\begin{itemize}\item Staff: Shelter employee who manages dog and application records\end{itemize}
+\begin{itemize}\item Admin: Staff member with full system permissions\end{itemize}
+\begin{itemize}\item Intake: The process of adding a new dog to the shelter system\end{itemize}
+\begin{itemize}\item Adoption Status: Current state of a dog: Available, Pending, Adopted, or Medical Hold\end{itemize}
+\section{Overall Description}
+\subsection{System Analysis}
+Shelters often track dogs, medical records, and adoption applications using paper forms or disconnected files. This can lead to missing records, delayed application reviews, and incorrect availability information. The Dog Shelter Management System solves this by storing all major shelter records in one organized system.
+\subsection{Product Perspective}
+The system will function as an independent shelter management application. It may later connect to email services, online adoption portals, or donation systems, but those are not required for the first release.
+\subsection{Product Functions}
+The system will provide:
+\begin{itemize}\item Dog intake record creation\end{itemize}
+\begin{itemize}\item Dog profile viewing and editing\end{itemize}
+\begin{itemize}\item Medical record tracking\end{itemize}
+\begin{itemize}\item Vaccination tracking\end{itemize}
+\begin{itemize}\item Adoption application submission\end{itemize}
+\begin{itemize}\item Staff approval/rejection workflow\end{itemize}
+\begin{itemize}\item Dog status tracking\end{itemize}
+\begin{itemize}\item Optional adming dashboard for staff management\end{itemize}
+\subsection{User Classes and Characteristics}
+\textbf{Applicant}: Public user who views dogs and submits adoption applications\\
+\textbf{Staff}: Shelter worker who manages dogs, records, and applications\\
+\textbf{Admin}: Higher-level staff user who manages all system data and staff access
+\subsection{Operating Environment}
+The system will run as a web application accessible through modern browsers such as Chrome, Edge, Safari, or Firefox. Staff and applicants will access the system using desktop or mobile devices.
+\subsection{Assumptions and Dependencies}
+\begin{itemize}\item Users have internet access\end{itemize}
+\begin{itemize}\item Staff accounts are created before staff can manage records.\end{itemize}
+\begin{itemize}\item Dog records must exist before medical records or applications can be connected to them.\end{itemize}
+\begin{itemize}\item The shelter is responsible for verifying adoption applicant information outside the system.\end{itemize}
+\section{External Interface Requirements}
+\subsection{User Interfaces}
+The system shall include pages for dog listings, dog profiles, intake forms, medical record forms, adoption applications, application review, and staff dashboard controls.
+\subsection{Hardware Interfaces}
+No special hardware interfaces are required.
+\subsection{Software Interfaces}
+The system may use a database to store dog, medical, user, and application records. If email notifications are added, the system may connect to an email service.
+\subsection{Communications Interfaces}
+The system shall communicate through standard web protocols such as HTTPS.
+\section{Requirements Specification}
+\subsection{Functional Requirements}
+Dog Intake System:
+\begin{itemize}\item FR-1: The system shall allow authorized staff to create a new dog profile.\end{itemize}
+\begin{itemize}\item FR-2: The system shall store each dog’s name, breed, estimated age, sex, arrival date, and intake notes.\end{itemize}
+\begin{itemize}\item FR-3: The system shall assign each new dog an initial status of Available, Pending, Medical Hold, or Unavailable.\end{itemize}
+\begin{itemize}\item FR-4: The system shall allow authorized staff to edit dog profile information.\end{itemize}
+Medical Records System:
+\begin{itemize}\item FR-5: The system shall allow authorized staff to add medical records to a dog profile.\end{itemize}
+\begin{itemize}\item FR-6: The system shall store vaccination name, vaccination date, due date, medical notes, and current health status.\end{itemize}
+\begin{itemize}\item FR-7: The system shall allow staff to update a dog’s health status.\end{itemize}
+\begin{itemize}\item FR-8: The system shall prevent applicants from editing medical records.\end{itemize}
+Adoption Management System:
+\begin{itemize}\item FR-9: The system shall allow users to submit adoption applications for available dogs.\end{itemize}
+\begin{itemize}\item FR-10: The system shall store applicant name, contact information, selected dog, housing information, pet experience, and application notes.\end{itemize}
+\begin{itemize}\item FR-11: The system shall allow staff to approve, reject, or mark applications as pending.\end{itemize}
+\begin{itemize}\item FR-12: The system shall record the staff member and date when an application status is changed.\end{itemize}
+Dog Status Tracking:
+\begin{itemize}\item FR-13: The system shall allow staff to update a dog’s adoption status.\end{itemize}
+\begin{itemize}\item FR-14: The system shall remove adopted dogs from the list of available dogs.\end{itemize}
+\begin{itemize}\item FR-15: The system shall prevent users from applying for dogs marked Adopted or Medical Hold.\end{itemize}
+\begin{itemize}\item FR-16: The system shall display each dog’s current status on its profile.\end{itemize}
+Admin Dashboard:
+\begin{itemize}\item FR-17: The system should provide a dashboard where staff can view total dogs, available dogs, pending applications, and adopted dogs.\end{itemize}
+\begin{itemize}\item FR-18: The system should allow admins to manage staff accounts.\end{itemize}
+\subsection{External Interface Requirements}
+\subsubsection{Dog Intake Form}
+The system shall provide a dog intake form for authorized staff to enter new dog records.\\
+\\
+Input Fields:
+\begin{itemize}\item Dog name\end{itemize}
+\begin{itemize}\item Breed\end{itemize}
+\begin{itemize}\item Estimated age\end{itemize}
+\begin{itemize}\item Sex\end{itemize}
+\begin{itemize}\item Arrival date\end{itemize}
+\begin{itemize}\item Intake reason\end{itemize}
+\begin{itemize}\item Initial status\end{itemize}
+\begin{itemize}\item Intake notes\end{itemize}
+Output:
+\begin{itemize}\item A new dog profile shall be created and stored in the system.\end{itemize}
+\begin{itemize}\item The dog shall appear in the staff dog management view.\end{itemize}
+\begin{itemize}\item If the dog is marked Available, the dog may appear in the public available dogs list.\end{itemize}
+Validation:
+\begin{itemize}\item Dog name, arrival date, and initial status shall be required.\end{itemize}
+\begin{itemize}\item Arrival date shall not be later than the current date.\end{itemize}
+\subsubsection{Medical Record Form}
+The system shall provide a medical record form for authorized staff to add or update medical information for a dog.
+\\
+\\
+Input Fields:
+\begin{itemize}\item Dog ID\end{itemize}
+\begin{itemize}\item Vaccination name\end{itemize}
+\begin{itemize}\item Vaccination date\end{itemize}
+\begin{itemize}\item Due date\end{itemize}
+\begin{itemize}\item Medical notes\end{itemize}
+\begin{itemize}\item Health status\end{itemize}
+Output:
+\begin{itemize}\item The medical record shall be attached to the selected dog profile.\end{itemize}
+\begin{itemize}\item The dog’s current health status shall be updated when applicable.\end{itemize}
+Validation:
+\begin{itemize}\item Medical records shall be connected to an existing dog.\end{itemize}
+\begin{itemize}\item Applicants shall not be able to access medical record editing controls.\end{itemize}
+\subsubsection{Adoption Application Form}
+The system shall provide an adoption application form for applicants.
+\\
+\\
+Input Fields:
+\begin{itemize}\item Applicant name\end{itemize}
+\begin{itemize}\item Contact Information\end{itemize}
+\begin{itemize}\item Address\end{itemize}
+\begin{itemize}\item Housing type\end{itemize}
+\begin{itemize}\item Previous pet experience\end{itemize}
+\begin{itemize}\item Selected dog\end{itemize}
+\begin{itemize}\item Application notes\end{itemize}
+Output:
+\begin{itemize}\item A new adoption application shall be stored with Pending status.\end{itemize}
+\begin{itemize}\item Staff shall be able to view the application in the review queue.\end{itemize}
+Validation:
+\begin{itemize}\item Applications shall only be submitted for dogs marked Available.\end{itemize}
+\begin{itemize}\item Applicant name, contact information, and selected dog shall be required.\end{itemize}
+\subsubsection{Application Review Interface}
+The system shall provide an application review interface for staff.
+\\
+\\
+Input Fields/Actions:
+\begin{itemize}\item Approve application\end{itemize}
+\begin{itemize}\item Reject application\end{itemize}
+\begin{itemize}\item Mark application as Pending\end{itemize}
+\begin{itemize}\item Add staff review notes\end{itemize}
+Output:
+\begin{itemize}\item The application status shall be updated.\end{itemize}
+\begin{itemize}\item The selected dog’s status shall be updated to Pending or Adopted when applicable.\end{itemize}
+\begin{itemize}\item The system shall record the review date and the reviewing staff member.\end{itemize}
+Validation:
+\begin{itemize}\item Only authorized staff shall review applications.\end{itemize}
+\subsection{Logical Database Requirements}
+The system shall store records for:
+\begin{itemize}\item Dogs\end{itemize}
+\begin{itemize}\item Medical records\end{itemize}
+\begin{itemize}\item Vaccinations\end{itemize}
+\begin{itemize}\item Adoption applications\end{itemize}
+\begin{itemize}\item Users/Staff accounts\end{itemize}
+\begin{itemize}\item Dog status history, if included\end{itemize}
+Basic Relationships:
+\begin{itemize}\item One dog may have many medical records.\end{itemize}
+\begin{itemize}\item One dog may have many adoption applications.\end{itemize}
+\begin{itemize}\item One applicant may submit multiple applications.\end{itemize}
+\begin{itemize}\item Staff users may review multiple applications.\end{itemize}
+\section{Other Nonfunctional Requirements}
+\subsection{Performance Requirements}
+\begin{itemize}\item NFR-1: The system shall load dog search results within 3 seconds under normal usage.\end{itemize}
+\begin{itemize}\item NFR-2: The system shall support multiple staff users accessing records at the same time.\end{itemize}
+\subsection{Safety Requirements}
+\begin{itemize}\item NFR-3: The system shall allow staff to mark dogs as Medical Hold when they are not ready for adoption.\end{itemize}
+\begin{itemize}\item NFR-4: The system shall prevent dogs with Medical Hold status from being submitted for adoption.\end{itemize}
+\subsection{Security Requirements}
+\begin{itemize}\item NFR-5: The system shall require staff users to log in before managing records.\end{itemize}
+\begin{itemize}\item NFR-6: The system shall restrict applicant personal information to authorized staff.\end{itemize}
+\begin{itemize}\item NFR-7: The system shall prevent public users from editing dog, medical, or application review records.\end{itemize}
+\subsection{Software Quality Attributes}
+\begin{itemize}\item The system shall be easy for shelter staff to learn.\end{itemize}
+\begin{itemize}\item The system shall organize dog and application records clearly.\end{itemize}
+\begin{itemize}\item The system shall be maintainable so future features, such as foster tracking or donations, can be added.\end{itemize}
+\subsection{Business Rules}
+\begin{itemize}\item Only staff may add or edit dog records.\end{itemize}
+\begin{itemize}\item Only staff may update medical records.\end{itemize}
+\begin{itemize}\item Only staff may approve or reject adoption applications.\end{itemize}
+\begin{itemize}\item Applicants may only apply for dogs marked Available.\end{itemize}
+\begin{itemize}\item Adopted dogs shall no longer appear as available.\end{itemize}
+\begin{itemize}\item Dogs on Medical Hold shall not be available for adoption.\end{itemize}
+\section{Legal and Ethical Considerations}
+The system will store applicant personal information, so it must protect user privacy and limit access to authorized staff. Medical records must be accurate because they affect animal welfare and adoption decisions. The system should support responsible adoption by preventing dogs with unresolved medical concerns from being adopted until cleared by staff.
+\section*{Glossary}
+\begin{tabular}{|l|l|p{8cm}|}
+\hline
+\textbf{Acronym} & \textbf{Meaning} & \textbf{Description} \\
+\hline
+SRS & Software Requirements Specification & A document that describes what the software system must do, including functional and nonfunctional requirements. \\
+\hline
+SRD & Software Requirements Document & Another name sometimes used for a requirements document; in this project, it refers to the SRS-style requirements document. \\
+\hline
+FR & Functional Requirement & A required system behavior or feature, usually written as ``The system shall...'' \\
+\hline
+NFR & Nonfunctional Requirement & A requirement describing system qualities such as performance, security, usability, or reliability. \\
+\hline
+ID & Identifier & A unique value used to identify a record, such as a Dog ID or application ID. \\
+\hline
+HTTPS & Hypertext Transfer Protocol Secure & A secure web communication protocol used to protect data sent between users and the system. \\
+\hline
+\end{tabular}
+\end{document}
