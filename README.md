@@ -11,7 +11,7 @@ operations by providing a single platform for managing all shelter activities.
 ---
 
 ## Jira Link:
-(ADD HERE)
+https://cs3338-dogshelter.atlassian.net/jira/software/projects/SCRUM/boards/1
 
 
 ## Core Features
