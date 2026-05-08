@@ -2,7 +2,7 @@
 
 ## Project Overview
 This project is developed as part of CS3338 Senior Design. The goal of this software is to build a centralized Dog Shelter Management System that allows shelters to
-efficiently manage dot intake, medical records, and adoption processes.
+efficiently manage dog intake, medical records, and adoption processes.
 
 ## Why This Project Matters?
 Animal shelters often rely on disorganized or manual systems to track dogs and adoption workflows. This system improves organization, reduces errors, and streamlines daily
