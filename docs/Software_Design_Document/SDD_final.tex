@@ -1,0 +1,262 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{float}
+\usepackage{setspace}
+\title{Dog Shelter Management System\\Software Design Document}
+\author{Kwane Galang\\\and Korapat Jaengsrivong\\\and Fernando Camberos \\ \and Andy Lim \\ \and Fredy Lung \\}
+\date{May 2026}
+
+% ==================== HYPERLINKS ====================
+\hypersetup{
+    hidelinks,
+    urlcolor=shelterblue,
+    colorlinks=false
+}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\tableofcontents
+\section*{Revision History}
+\addcontentsline{toc}{section}{Revision History}
+
+\begin{longtable}{|>{\centering\arraybackslash}p{2cm}|%
+>{\raggedright\arraybackslash}p{3.5cm}|%
+>{\centering\arraybackslash}p{2.5cm}|%
+>{\centering\arraybackslash}p{2.5cm}|%
+>{\centering\arraybackslash}p{2.5cm}|}
+    \hline
+    \textbf{Revision \#} & \textbf{Change Description} & \textbf{Revision Date} & \textbf{Revised By} & \textbf{Approved By}
+    \endhead
+
+    \hline
+    1.0 & Initial system design including overall architecture and core feature outline (Dog Intake, Medical Records, Adoption, Status Tracking) & 05/06/2026 &  & \\
+    \hline
+    
+    1.1 & Added design details for Dog Intake System and Dog Status Tracking, including data flow and component interactions & 05/07/2026 &  & \\
+    \hline
+
+    1.2 & Added design details for Medical Records System and Adoption Management System, including expanded architecture and workflows & 05/08/2026 &  & \\
+    \hline
+
+
+    1.3 & Finalized system design with refinements, improved consistency, and inclusion of future enhancement & 05/09/2026 &  & \\
+    \hline
+    
+\end{longtable}
+\newpage
+% ==================== 1. Introduction ====================
+\section{Introduction}
+\subsection{Purpose}
+This Software Design Document (SDD) describes the architecture, design decisions, and system components for the Dog Shelter Management System. It is intended to guide the development team throughout all project phases and provide a technical reference for stakeholders.
+ 
+\subsection{Intended Audience}
+This document is intended for:
+\begin{itemize}
+    \item Software Developers and Project Managers
+    \item Shelter Administrators and Staff
+    \item Users (Potential Adopters) and Testers
+\end{itemize}
+ 
+\subsection{System Overview}
+The Dog Shelter Management System is a web-based application designed to help animal shelters streamline and manage their day-to-day operations in an organized and efficient manner. The system is built around five core features that together cover the full lifecycle of a dog's stay at the shelter:
+ 
+\begin{enumerate}
+    \item \textbf{Dog Intake System} - Add new dogs and store basic information (name, breed, age, arrival date)
+    \item \textbf{Medical Records System} -- Track vaccinations, store medical history, and update health status
+    \item \textbf{Adoption Management System} -- Allow users to submit adoption applications and staff to review, approve, or reject them
+    \item \textbf{Dog Status Tracking} -- Manage and display availability statuses: Available, Pending, or Adopted
+    \item \textbf{Admin Dashboard} -- Provide staff with a centralized interface to manage dogs, medical records, and applications
+\end{enumerate}
+ 
+\subsection{Scope}
+This document covers the initial design and setup of the system as defined in the Start Objective.
+Subsequent versions of this document will reflect updates made at each project checkpoint.
+
+% ==================== 2. SYSTEM ARCHITECTURE ====================
+\section{System Architecture}
+ 
+\subsection{High-Level Architecture}
+The Dog Shelter Management System follows a standard three-tier architecture:
+ 
+\begin{itemize}
+    \item \textbf{Frontend (Presentation Layer):} A web-based user interface accessible by
+    both general users and shelter staff.
+    \item \textbf{Backend (Application Layer):} A RESTful API server that handles business
+    logic, data processing, and communication between layers.
+    \item \textbf{Database (Data Layer):} A relational database that persists all dog,
+    medical, adoption, and user data.
+\end{itemize}
+ 
+\subsection{Workflow}
+At a high level, users interact with the frontend to perform actions such as viewing available
+dogs or submitting adoption applications. The frontend communicates with the backend API, which
+processes requests and reads from or writes to the database. Staff and administrators access
+additional management views through the Admin Dashboard feature. When an adoption application
+is submitted, the backend evaluates the request and updates the dog's status accordingly
+(Pending on approval, Available on rejection).
+
+\subsection{Data Flow}
+The diagram below illustrates how data travels through the system when a user or staff member
+performs an action. Using dog intake as an example, the flow proceeds from form submission
+through the backend API for validation, into the database for storage, and finally back to
+the UI as a refreshed dog listing.
+ 
+\vspace{-0.5em}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.45\textheight]{figures/data_flow.png}
+    \caption{Data flow diagram -- dog intake example
+    (form $\rightarrow$ backend $\rightarrow$ database $\rightarrow$ UI)}
+    \label{fig:data-flow}
+\end{figure}
+\vspace{-0.5em}
+ 
+\subsection{Component Interaction}
+The diagram below shows how the three system layers communicate with each other.
+The frontend sends HTTP requests to the backend API and receives JSON responses.
+The backend API issues SQL queries to the database and processes the returned result sets.
+ 
+\vspace{-0.5em}
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=0.45\textheight]{figures/component_interaction.png}
+    \caption{Component interaction diagram --
+    frontend $\leftrightarrow$ backend $\leftrightarrow$ database}
+    \label{fig:component-interaction}
+\end{figure}
+\vspace{-0.5em}
+ 
+\subsection{Technology Stack}
+ 
+\begin{center}
+\begin{tabular}{|l|l|}
+    \hline
+    \textbf{Layer} & \textbf{Technology} \\
+    \hline
+    Frontend         & docker-compose.yml \\
+    \hline
+    Backend          & Node.js \\
+    \hline
+    Database         & MySQL \\
+    \hline
+    Containerization & Docker \\
+    \hline
+    Version Control  & GitHub \\
+    \hline
+\end{tabular}
+\end{center}
+ 
+\vspace{0.5em}
+% ==================== 3. USER INTERFACE ====================
+\section{User Interface}
+ 
+\subsection{Overview}
+The user interface will consist of two primary user roles. General users (potential adopters)
+can browse available dogs, view individual dog profiles, and submit adoption applications.
+Staff and administrators have access to all general user functionality, plus additional
+management tools including the dog intake form, medical records editor, adoption application
+reviewer, and the Admin Dashboard.
+ 
+\subsection{Key Pages}
+\begin{itemize}
+    \item \textbf{Home / Dog Listing Page:} Displays all dogs with their current status
+    (Available, Pending, Adopted) with filtering and search options.
+    \item \textbf{Dog Profile Page:} Shows individual dog details including basic info
+    and health status.
+    \item \textbf{Adoption Application Page:} Form for users to submit an adoption
+    application for a specific dog.
+    \item \textbf{Admin Dashboard:} Staff-only view for managing all system data including
+    dogs, records, and applications.
+    \item \textbf{Dog Intake Form:} Staff-only form to register a new dog into the system.
+    \item \textbf{Medical Records Page:} Staff-only interface to view and update a dog's
+    medical history and vaccination records.
+\end{itemize}
+ 
+\textit{Note: Detailed UI mockups and database schema will be added in subsequent versions.}
+ 
+\subsection{Database Explanation}
+The system uses a relational database to store and manage all persistent data. Each core
+feature of the application maps directly to one or more database tables:
+ 
+\begin{itemize}
+    \item \textbf{Dogs table} -- Stores each dog's basic information including name, breed,
+    age, arrival date, and current status (Available, Pending, or Adopted).
+    \item \textbf{Medical Records table} -- Stores vaccination history, health status updates,
+    and medical notes linked to a specific dog by ID.
+    \item \textbf{Adoption Applications table} -- Stores all submitted adoption applications,
+    including the applicant's information, the dog requested, and the application status
+    (Pending, Approved, or Rejected).
+    \item \textbf{Users table} -- Stores user accounts and roles, distinguishing between
+    general users (adopters) and staff/administrators.
+\end{itemize}
+ 
+When a user or staff member performs an action on the UI -- such as adding a dog, updating
+medical records, or submitting an adoption application -- the backend API translates that
+action into a database operation (INSERT, UPDATE, or SELECT) and returns the result to
+the UI as a JSON response.
+
+% ==================== 4. GLOSSARY ====================
+\section{Glossary}
+ 
+\begin{center}
+\begin{tabular}{|l|p{9.5cm}|}
+    \hline
+    \rowcolor{shelterblue!15}
+    \textbf{Term / Acronym} & \textbf{Definition} \\
+    \hline
+    SDD    & Software Design Document \\
+    \hline
+    SRS    & Software Requirements Specification \\
+    \hline
+    API    & Application Programming Interface \\
+    \hline
+    REST   & Representational State Transfer \\
+    \hline
+    UI     & User Interface \\
+    \hline
+    UX     & User Experience \\
+    \hline
+    Admin  & Administrator; a staff member with elevated system permissions \\
+    \hline
+    Intake & The process of registering a new dog into the shelter system \\
+    \hline
+    Status & A dog's current adoption state: Available, Pending, or Adopted \\
+    \hline
+    CRUD   & Create, Read, Update, Delete -- basic data operations \\
+    \hline
+    HTTP   & Hypertext Transfer Protocol -- used for frontend-backend communication \\
+    \hline
+    SQL    & Structured Query Language -- used for database operations \\
+    \hline
+\end{tabular}
+\end{center}
+ 
+% ==================== 5. REFERENCES ====================
+\section{References}
+\begin{itemize}
+    \item CS3338 Final Project Assignment Document -- Professor's Guidelines: \url{https://calstatela.instructure.com/courses/122817/assignments/2390947}
+    \item Ascent Senior Design Projects:
+    \url{https://ascent.cysun.org/project/project}
+    \item Node.js Documentation:
+    \url{https://nodejs.org/en/docs}
+    \item Docker Documentation:
+    \url{https://docs.docker.com}
+    \item mySQL Documentation:
+    \url{https://dev.mysql.com/doc/}
+\end{itemize}
+ 
+\end{document}
