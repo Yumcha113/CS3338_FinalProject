@@ -1,0 +1,12 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "latest",
+    "cors": "latest",
+    "mysql2": "latest"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
