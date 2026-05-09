@@ -253,6 +253,42 @@ The system follows a standard interaction flow:
 
 As shown in Figure~\ref{fig:workflow}, the system processes user and staff interactions through a web-based frontend interface. Requests are sent to the backend API, which handles business logic and communicates with the database to store and retrieve information. The workflow ensures that dog intake, medical updates, and adoption processes are consistently managed across the system.
 
+\section{System Dependencies and Technologies}
+
+The Dog Shelter Management System relies on the following technologies and dependencies to function within a Dockerized environment.
+
+\subsection{Frontend}
+\begin{itemize}
+\item React.js
+\item react-dom
+\item react-scripts
+\item Axios (API communication)
+\item Bootstrap or Material UI (UI components)
+\end{itemize}
+
+\subsection{Backend}
+\begin{itemize}
+\item Node.js
+\item Express.js
+\item body-parser
+\item cors
+\item dotenv
+\item jsonwebtoken (authentication)
+\end{itemize}
+
+\subsection{Database}
+\begin{itemize}
+\item MySQL
+\item mysql2 (Node.js connector)
+\end{itemize}
+
+\subsection{Development Tools}
+\begin{itemize}
+\item Docker
+\item Docker Compose
+\item GitHub (version control)
+\end{itemize}
+
 \section{Future Work}
 
 Potential future enhancements include:
