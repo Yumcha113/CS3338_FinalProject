@@ -17,24 +17,24 @@ https://cs3338-dogshelter.atlassian.net/jira/software/projects/SCRUM/boards/1
 ## Core Features
 
 1. Dog Intake System
-- (ADD HERE)
-- (ADD HERE)
+- Add new dogs to the system
+- Store basic information (name, breed, age, arrival date)
 
 2. Medical Record System
-- (ADD HERE)
-- (ADD HERE)
+- Track vaccinations and treatments
+- Store medical history and update health status
 
 3. Adoption Management System
-- (ADD HERE)
-- (ADD HERE)
+- Users submit adoption applications
+- Staff review, approve, or reject applications
 
 4. Dog Status Tracking
-- (ADD HERE)
-- (ADD HERE)
+- Track status (Available, Pending, Adopted)
+- Update availability in real-time
 
 5. Admin Dashboard
-- (ADD HERE)
-- (ADD HERE)
+- Central interface for staff to manage dogs and applications
+- View system data and perform administrative actions
 
 ## Tech Stack
 
