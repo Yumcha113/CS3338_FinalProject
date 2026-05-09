@@ -69,3 +69,20 @@ https://cs3338-dogshelter.atlassian.net/jira/software/projects/SCRUM/boards/1
 1. Clone the Repository
 - git clone https://github.com/Yumcha113/CS3338_FinalProject.git
 - cd CS3338_FinalProject
+
+2. Run with Docker
+- docker compose up --build (Make sure docker is installed and running, then execute)
+
+3. Access the application
+- Frontend: https://localhost:3000
+- Backend: https://localhost:5001
+- Database Test: https://localhost:5001/db-test
+
+4. Stopping the Application
+- Press CTRL + C in the terminal, then run: docker compose down
+
+Key takeaways
+- clone
+- run
+- access
+- stop
