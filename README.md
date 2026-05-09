@@ -39,21 +39,28 @@ https://cs3338-dogshelter.atlassian.net/jira/software/projects/SCRUM/boards/1
 ## Tech Stack
 
 ### Frontend
-- (ADD HERE)
-- (ADD HERE)
+- React.js
+- react-dom
+- react-scripts
+- Axios
+- BootStrap
 
 ### Backend
-- (ADD HERE)
-- (ADD HERE)
+- Node.js
+- Express.js
+- body-parser
+- CORS
+- dotenv
+- jsonwebtoken
 
 ### Database
-- (ADD HERE)
-- (ADD HERE)
+- MySQL
+- MySQL2
 
 ### DevOps
 - Docker
 - Docker Compose
-
+- Github
 ---
 
 ### How to Run the Project
