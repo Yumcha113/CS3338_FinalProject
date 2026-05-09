@@ -81,7 +81,7 @@ https://cs3338-dogshelter.atlassian.net/jira/software/projects/SCRUM/boards/1
 4. Stopping the Application
 - Press CTRL + C in the terminal, then run: docker compose down
 
-Key takeaways
+## Key takeaways
 - clone
 - run
 - access
