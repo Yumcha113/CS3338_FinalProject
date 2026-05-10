@@ -1,100 +1,3 @@
-  UW PICO 5.09                           New Buffer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                  [ New file ]
-^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C Cur Pos
-^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T To Spell
-  UW PICO 5.09                           New Buffer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                  [ New file ]
-^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C Cur Pos
-^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T To Spell
-Last login: Sun May 10 12:16:13 on console
-❯ cd CS3338_FinalProject
-❯ nano user_manual.tex
-❯ cd ..
-❯ cd ~/CS3338_FinalProject
-❯ git status
-On branch main
-Your branch is up to date with 'origin/main'.
-
-nothing to commit, working tree clean
-❯ nano user_manual.tex
-❯ git add user_manual.tex
-❯ git commit -m "Added objective breakdown and jira link"
-[main acdb3de] Added objective breakdown and jira link
- 1 file changed, 104 insertions(+)
- create mode 100644 user_manual.tex
-❯ git push
-Enumerating objects: 4, done.
-Counting objects: 100% (4/4), done.
-Delta compression using up to 8 threads
-  UW PICO 5.09                           New Buffer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                               [ Read 77 lines ]
-^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C Cur Pos
-^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T To Spell
-  UW PICO 5.09                   File: docs/user_manual.tex
-
 \documentclass{article}
 
 \title{Dog Shelter Management System \\ User Manual}
@@ -106,15 +9,96 @@ Delta compression using up to 8 threads
 \maketitle
 
 \section{Project Overview}
-The Dog Shelter Management System is a centralized platform designed to help an$
+The Dog Shelter Management System is a centralized platform designed to help animal shelters manage dog intake, medical records, and adoption processes efficiently. The system allows staff to track dog information, update records, and manage adoption applications in an organized manner.
 
-\section{Purpose}
-The purpose of this system is to improve organization within shelters and strea$
-
-\section{System Requirements}
-To run this project, the following are required:
+\section{Jira Link}
 \begin{itemize}
-    \item Docker installed on the system
+    \item https://cs3338-dogshelter.atlassian.net/jira/software/projects/SCRUM/boards/1
+\end{itemize}
 
-^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Pg   ^K Cut Text  ^C Cur Pos
-^X Exit      ^J Justify   ^W Where is  ^V Next Pg   ^U UnCut Text^T To Spell
+\section{Objective Breakdown}
+
+\subsection{Start Objective}
+Set up repository, Software Requirements Specification (SRS), and Software Design Document (SDD).
+
+\subsection{1st Checkpoint}
+Implement Dog Intake System and Dog Status Tracking.
+
+\subsection{2nd Checkpoint}
+Implement Medical Records, Adoption Management System, and Admin Dashboard.
+
+\subsection{Final Checkpoint}
+Perform testing, bug fixes, and finalize the system.
+
+\section{Goals and Purpose}
+The Dog Shelter Management System is designed to improve organization within animal shelters by providing a centralized platform to manage dog intake, medical records, and adoption processes. The system reduces manual tracking errors and streamlines daily operations for staff.
+
+\section{How to Download and Run}
+
+\subsection{Clone the Repository}
+\begin{verbatim}
+git clone https://github.com/Yumcha113/CS3338_FinalProject.git
+cd CS3338_FinalProject
+\end{verbatim}
+
+\subsection{Run with Docker}
+Make sure Docker is installed and running, then execute:
+\begin{verbatim}
+docker compose up --build
+\end{verbatim}
+
+\subsection{Access the Application}
+\begin{itemize}
+    \item Frontend: http://localhost:3000
+    \item Backend: http://localhost:5001
+    \item Database Test: http://localhost:5001/db-test
+\end{itemize}
+
+\subsection{Stopping the Application}
+Press CTRL + C in the terminal, then run:
+\begin{verbatim}
+docker compose down
+\end{verbatim}
+
+\subsection{Key Takeaways}
+\begin{itemize}
+    \item Clone
+    \item Run
+    \item Access
+    \item Stop
+\end{itemize}
+
+\section{Core Features}
+
+\subsection{Dog Intake System}
+Allows staff to add new dogs and store basic information such as name, breed, age, and arrival date.
+
+\subsection{Medical Records System}
+Enables tracking of vaccinations, treatments, and overall health status of each dog.
+
+\subsection{Adoption Management System}
+Allows users to submit adoption applications and staff to review, approve, or reject them.
+
+\subsection{Dog Status Tracking}
+Tracks whether a dog is available, pending adoption, or adopted.
+
+\subsection{Admin Dashboard}
+Provides staff with a centralized interface to manage dogs, records, and applications.
+
+\section{How to Use the System}
+\begin{itemize}
+    \item Staff can add and update dog information
+    \item Medical records can be updated as treatments occur
+    \item Adoption applications can be reviewed and processed
+    \item Dog status is updated based on adoption progress
+\end{itemize}
+
+\section{Future Improvements}
+\begin{itemize}
+    \item User authentication system
+    \item Improved user interface
+    \item Search and filtering functionality
+    \item Notification system for application updates
+\end{itemize}
+
+\end{document}
